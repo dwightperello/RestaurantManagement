@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".presentation.activity.MainActivity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_180sdp"
+        android:layout_marginEnd="@dimen/_180sdp"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+              >
+                <EditText
+                    android:background="@drawable/border"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Email Address"
+                    android:text="testuser@test.com"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:id="@+id/et_email"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+                <EditText
+                    android:background="@drawable/border"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Password"
+                    android:text="P@ssword12345"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:id="@+id/et_password"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/roundedbutton"
+                    android:backgroundTint="@color/purple_700"
+                    android:text="Login"
+                    android:textColor="@color/white"
+                    android:id="@+id/btn_login"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+</FrameLayout>
