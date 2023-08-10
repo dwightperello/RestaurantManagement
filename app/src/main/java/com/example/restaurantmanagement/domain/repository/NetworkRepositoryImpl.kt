@@ -34,5 +34,13 @@ class NetworkRepositoryImpl @Inject constructor (private val networkService: Net
        return  networkService.GetMenu()
     }
 
+    override suspend fun DeleteMenu(id: Int): ResponseBody {
+       return networkService.DeleteMenu(id)
+    }
+
+    override suspend fun updateMenu(id: Int, newMenu: NewMenu): ResponseBody {
+      return  networkService.updateMenu(id,newMenu)
+    }
+
 
 }

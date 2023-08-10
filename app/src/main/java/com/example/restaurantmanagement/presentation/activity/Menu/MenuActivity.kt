@@ -73,7 +73,7 @@ class MenuActivity : BaseActivity() {
     val showdialog={
         AestheticDialog.Builder(this, DialogStyle.FLASH, DialogType.SUCCESS)
             .setTitle("Success")
-            .setMessage("Please wait for your order to complete. Thank you")
+            .setMessage("New menu saved")
             .setCancelable(false)
             .setDarkMode(false)
             .setGravity(Gravity.CENTER)
@@ -94,8 +94,8 @@ class MenuActivity : BaseActivity() {
             name = _binding.etMenuname.text.toString(),
             description = _binding.etDescription.text.toString(),
             tag = convertoint.toInt(),
-            imageURL = _binding.etUrl.text.toString()
-
+            imageURL = _binding.etUrl.text.toString(),
+            id = 0
         )
         method
     }

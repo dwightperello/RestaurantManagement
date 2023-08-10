@@ -12,6 +12,7 @@ import com.example.restaurantmanagement.Util.ResultState
 import com.example.restaurantmanagement.Util.showCustomToast
 import com.example.restaurantmanagement.databinding.ActivityMainBinding
 import com.example.restaurantmanagement.domain.model.request.request_login
+import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
 import com.example.restaurantmanagement.domain.model.response.response_login
 import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.Home.HomeActivity
@@ -45,16 +46,43 @@ class MainActivity : BaseActivity() {
         viewModel.login.observe(this, Observer {
             state -> ProcessLoginResponse(state)
         })
+        viewModel.menu.observe(this , Observer {
+            state-> GetALlMenuForLater(state)
+        })
     }
 
     private fun ProcessLoginResponse(state: ResultState<response_login>){
+        when(state){
+            is ResultState.Loading ->{
+               // showCustomProgressDialog()
+            }
+            is ResultState.Success->{
+               // hideProgressDialog()
+                DataTempMngr.loginresponse= state.data
+                viewModel.getMenus()
+//                val intent = Intent(this, HomeActivity::class.java)
+//                startActivity(intent)
+//                overridePendingTransition(
+//                    R.anim.screenslideright,
+//                    R.anim.screen_slide_out_left);
+            }
+            is ResultState.Error->{
+                hideProgressDialog()
+                Toast(this).showCustomToast(state.exception.toString(),this)
+            }
+            else -> {}
+        }
+    }
+
+    private fun GetALlMenuForLater(state: ResultState<ArrayList<AllMenuModelItem>>){
         when(state){
             is ResultState.Loading ->{
                 showCustomProgressDialog()
             }
             is ResultState.Success->{
                 hideProgressDialog()
-                DataTempMngr.loginresponse= state.data
+                DataTempMngr.menuItems=state.data
+
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(

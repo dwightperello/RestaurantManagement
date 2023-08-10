@@ -18,6 +18,7 @@ import com.example.restaurantmanagement.domain.model.response.TableOrdersItem
 import com.example.restaurantmanagement.domain.model.response.response_login
 import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.MainActivity.MainViewModel
+import com.example.restaurantmanagement.presentation.activity.Menu.EditMenuActivity
 import com.example.restaurantmanagement.presentation.activity.Menu.MenuActivity
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
@@ -77,7 +78,7 @@ class HomeActivity : BaseActivity() {
           startActivityWithAnimation<MenuActivity>(R.anim.enter_vertical,R.anim.exit_vertical)
         }
         _binding.llEditmenu.setOnClickListener {
-            //startActivityWithAnimation<MenuActivity>(R.anim.enter_vertical,R.anim.exit_vertical)
+            startActivityWithAnimation<EditMenuActivity>(R.anim.enter_vertical,R.anim.exit_vertical)
         }
     }
 

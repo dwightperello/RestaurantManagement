@@ -17,7 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".EditMenuActivity"
+            android:name=".presentation.activity.Menu.EditMenuActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.saving.nobar"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.Menu.MenuActivity"

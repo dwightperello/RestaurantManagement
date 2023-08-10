@@ -8,8 +8,10 @@ import com.example.restaurantmanagement.domain.model.response.TableOrdersItem
 import com.example.restaurantmanagement.domain.model.response.response_login
 import okhttp3.ResponseBody
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface NetworkService {
@@ -28,6 +30,13 @@ interface NetworkService {
 
     @GET("Menus")
     suspend fun GetMenu():ArrayList<AllMenuModelItem>
+
+    @DELETE("Menus/{id}")
+    suspend fun DeleteMenu(@Path("id") id:Int) : ResponseBody
+
+    @PUT("Menus/{id}")
+    suspend fun updateMenu(@Path("id") id:Int,@Body newMenu: NewMenu): ResponseBody
+
 
 
 }

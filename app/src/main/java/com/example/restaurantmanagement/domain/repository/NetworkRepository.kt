@@ -22,4 +22,8 @@ interface NetworkRepository {
 
     suspend fun Menus():ArrayList<AllMenuModelItem>
 
+    suspend fun DeleteMenu(id:Int):ResponseBody
+
+    suspend fun updateMenu(id:Int,newMenu: NewMenu):ResponseBody
+
 }
