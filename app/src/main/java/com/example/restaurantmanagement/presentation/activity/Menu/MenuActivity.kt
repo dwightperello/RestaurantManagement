@@ -19,6 +19,7 @@ import com.example.restaurantmanagement.Util.showCustomToast
 import com.example.restaurantmanagement.Util.startActivityWithAnimation
 import com.example.restaurantmanagement.databinding.ActivityMenuBinding
 import com.example.restaurantmanagement.domain.model.request.NewMenu
+import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
 import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.Home.HomeActivity
 import com.example.restaurantmanagement.presentation.activity.MainActivity.MainViewModel
@@ -105,6 +106,9 @@ class MenuActivity : BaseActivity() {
         viewModel.newmenu.observe(this, Observer {
             state -> ProcessResult(state)
         })
+
+
+
     }
 
     private fun ProcessResult(state: ResultState<ResponseBody>?){
@@ -113,8 +117,9 @@ class MenuActivity : BaseActivity() {
                 showCustomProgressDialog()
             }
             is ResultState.Success->{
-                hideProgressDialog()
-                    showdialog()
+
+                  showdialog()
+
                 }
             is ResultState.Error->{
                 hideProgressDialog()
@@ -125,6 +130,7 @@ class MenuActivity : BaseActivity() {
         }
 
     }
+
 
 
 }

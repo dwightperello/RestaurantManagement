@@ -55,7 +55,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/roundedbutton"
+                    android:background="@drawable/ripple_login"
                     android:backgroundTint="@color/purple_700"
                     android:text="Login"
                     android:textColor="@color/white"

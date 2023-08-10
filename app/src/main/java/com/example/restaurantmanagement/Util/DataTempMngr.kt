@@ -9,8 +9,6 @@ object DataTempMngr {
 
     var loginresponse:response_login?= null
 
-    var menuItems:ArrayList<AllMenuModelItem>?= ArrayList<AllMenuModelItem>()
-
     fun validAllFields(vararg editText: EditText):Boolean{
         for (editText in editText) {
             if (editText.text.toString().trim().isEmpty()) {

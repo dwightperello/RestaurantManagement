@@ -46,9 +46,7 @@ class MainActivity : BaseActivity() {
         viewModel.login.observe(this, Observer {
             state -> ProcessLoginResponse(state)
         })
-        viewModel.menu.observe(this , Observer {
-            state-> GetALlMenuForLater(state)
-        })
+
     }
 
     private fun ProcessLoginResponse(state: ResultState<response_login>){
@@ -59,35 +57,11 @@ class MainActivity : BaseActivity() {
             is ResultState.Success->{
                // hideProgressDialog()
                 DataTempMngr.loginresponse= state.data
-                viewModel.getMenus()
-//                val intent = Intent(this, HomeActivity::class.java)
-//                startActivity(intent)
-//                overridePendingTransition(
-//                    R.anim.screenslideright,
-//                    R.anim.screen_slide_out_left);
-            }
-            is ResultState.Error->{
-                hideProgressDialog()
-                Toast(this).showCustomToast(state.exception.toString(),this)
-            }
-            else -> {}
-        }
-    }
-
-    private fun GetALlMenuForLater(state: ResultState<ArrayList<AllMenuModelItem>>){
-        when(state){
-            is ResultState.Loading ->{
-                showCustomProgressDialog()
-            }
-            is ResultState.Success->{
-                hideProgressDialog()
-                DataTempMngr.menuItems=state.data
-
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(
-                    R.anim.screenslideright,
-                    R.anim.screen_slide_out_left);
+                    R.anim.screenslideleft,
+                    R.anim.screen_slide_out_right);
             }
             is ResultState.Error->{
                 hideProgressDialog()
@@ -96,4 +70,6 @@ class MainActivity : BaseActivity() {
             else -> {}
         }
     }
+
+
 }

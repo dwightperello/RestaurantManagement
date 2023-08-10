@@ -97,8 +97,6 @@ class EditMenuActivity : BaseActivity() {
             }
             is ResultState.Success->{
                 hideProgressDialog()
-                DataTempMngr.menuItems?.clear()
-                DataTempMngr.menuItems=state.data
                 allmenuitemadapater= AllMenuAdapter(this)
                 _binding!!.rvMenuList.adapter = allmenuitemadapater
                 _binding!!.rvMenuList.layoutManager =   GridLayoutManager(this, 2)

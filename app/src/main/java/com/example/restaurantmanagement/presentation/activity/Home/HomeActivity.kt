@@ -75,10 +75,10 @@ class HomeActivity : BaseActivity() {
         }
 
         _binding.llMenu.setOnClickListener {
-          startActivityWithAnimation<MenuActivity>(R.anim.enter_vertical,R.anim.exit_vertical)
+          startActivityWithAnimation<MenuActivity>(R.anim.screenslideright,R.anim.screen_slide_out_left)
         }
         _binding.llEditmenu.setOnClickListener {
-            startActivityWithAnimation<EditMenuActivity>(R.anim.enter_vertical,R.anim.exit_vertical)
+            startActivityWithAnimation<EditMenuActivity>(R.anim.screenslideright,R.anim.screen_slide_out_left)
         }
     }
 
