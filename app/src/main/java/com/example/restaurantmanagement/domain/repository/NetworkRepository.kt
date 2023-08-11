@@ -2,6 +2,7 @@ package com.example.restaurantmanagement.domain.repository
 
 import com.example.restaurantmanagement.Util.ResultState
 import com.example.restaurantmanagement.domain.model.request.NewMenu
+import com.example.restaurantmanagement.domain.model.request.UpdateMenuSubitem
 import com.example.restaurantmanagement.domain.model.request.request_login
 import com.example.restaurantmanagement.domain.model.response.*
 import kotlinx.coroutines.flow.Flow
@@ -24,5 +25,11 @@ interface NetworkRepository {
     suspend fun updateMenu(id:Int,newMenu: NewMenu):ResponseBody
 
     suspend fun AddNewSubmenu(submenu: Submenu,token:String):ResponseBody
+
+    suspend fun getAllSubmenu():ArrayList<Submenu>
+
+    suspend fun updateSubmenuitems(id:Int,updateMenuSubitem: UpdateMenuSubitem,token: String) :ResponseBody
+
+    suspend fun deleteSubitem(id:Int,token: String):ResponseBody
 
 }

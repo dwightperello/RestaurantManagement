@@ -62,7 +62,8 @@ class EditMenuActivity : BaseActivity() {
         }
 
         _binding.btnCancel.setOnClickListener {
-            startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+           // startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+            startActivityWithAnimation<HomeActivity>(com.karumi.dexter.R.anim.design_bottom_sheet_slide_in, androidx.appcompat.R.anim.abc_slide_out_top)
             finish()
         }
 
@@ -148,7 +149,7 @@ class EditMenuActivity : BaseActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+        startActivityWithAnimation<HomeActivity>(com.karumi.dexter.R.anim.design_bottom_sheet_slide_in, androidx.appcompat.R.anim.abc_slide_out_top)
         finish()
     }
 

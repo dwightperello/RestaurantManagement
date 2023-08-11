@@ -17,10 +17,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activity.PreviewActivity"
-            android:theme="@style/CustomDialog"
+            android:name=".presentation.activity.Subitems.UpdateActivity"
             android:screenOrientation="landscape"
+            android:theme="@style/CustomDialog"
             android:exported="false" />
+        <activity
+            android:name=".presentation.activity.Subitems.EditSubMenuitemActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.saving.nobar" />
+        <activity
+            android:name=".presentation.activity.PreviewActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/CustomDialog" />
         <activity
             android:name=".presentation.activity.Subitems.AddSubItemActivity"
             android:exported="false"

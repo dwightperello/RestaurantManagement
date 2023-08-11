@@ -49,7 +49,8 @@ class AddSubItemActivity : BaseActivity() {
         initData()
 
         _binding.btnCancel.setOnClickListener {
-            startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+           // startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+            startActivityWithAnimation<HomeActivity>(com.karumi.dexter.R.anim.design_bottom_sheet_slide_in, androidx.appcompat.R.anim.abc_slide_out_top)
             finish()
         }
 
@@ -96,7 +97,8 @@ class AddSubItemActivity : BaseActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+        //startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
+        startActivityWithAnimation<HomeActivity>(com.karumi.dexter.R.anim.design_bottom_sheet_slide_in, androidx.appcompat.R.anim.abc_slide_out_top)
         finish()
     }
 
@@ -115,7 +117,7 @@ class AddSubItemActivity : BaseActivity() {
                     showMenuForsubitemAdapter.populateMenu(it)
 
                 }
-
+                tagids.clear()
                 state.data.forEach {
                     it.submenu.forEach {
                         tagids.add(it.tag)

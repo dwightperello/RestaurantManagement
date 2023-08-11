@@ -7,25 +7,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.example.restaurantmanagement.databinding.MenuDishForsubeitemBinding
+import com.example.restaurantmanagement.databinding.AllsubmenuAdapterBinding
 import com.example.restaurantmanagement.databinding.MenuDishLayoutBinding
 import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
+import com.example.restaurantmanagement.domain.model.response.Submenu
 import com.example.restaurantmanagement.presentation.activity.Menu.EditMenuActivity
-import com.example.restaurantmanagement.presentation.activity.Subitems.AddSubItemActivity
 import com.example.restaurantmanagement.presentation.activity.Subitems.EditSubMenuitemActivity
 
-class showMenuForsubitemAdapter  (private val activity: Activity): RecyclerView.Adapter<showMenuForsubitemAdapter.ViewHolder>() {
-    private var allmenu= ArrayList<AllMenuModelItem>()
+class AllSubmenuAdapter (private val activity: Activity): RecyclerView.Adapter<AllSubmenuAdapter.ViewHolder>(){
+    private var allmenu= ArrayList<Submenu>()
 
-    class ViewHolder(view: MenuDishForsubeitemBinding) : RecyclerView.ViewHolder(view.root) {
+    class ViewHolder(view: AllsubmenuAdapterBinding) : RecyclerView.ViewHolder(view.root) {
         val ivAllImage = view.ivDishImage
         val tvAllTitle = view.tvDishTitle
+        val deletebtn=view.btndelete
+        val updatebtn=view.btnupdate
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding:MenuDishForsubeitemBinding=
-            MenuDishForsubeitemBinding.inflate(LayoutInflater.from(activity),parent,false)
-        return showMenuForsubitemAdapter.ViewHolder(binding)
+        val binding:AllsubmenuAdapterBinding=
+            AllsubmenuAdapterBinding.inflate(LayoutInflater.from(activity),parent,false)
+        return AllSubmenuAdapter.ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -41,18 +43,22 @@ class showMenuForsubitemAdapter  (private val activity: Activity): RecyclerView.
             .into(holder.ivAllImage)
 
         holder.tvAllTitle.text = menus.name
-        // holder.tvAllPrice.text = menus.price.toString()
-        holder.itemView.setOnClickListener {
-            if(activity is AddSubItemActivity){
-                activity.showmenu(menus)
+
+
+        holder.deletebtn.setOnClickListener {
+            if(activity is EditSubMenuitemActivity){
+               activity.confirmdelete(menus)
             }
-            else if(activity is EditSubMenuitemActivity){
-                activity.filterDate(menus)
+        }
+
+        holder.updatebtn.setOnClickListener {
+            if(activity is EditSubMenuitemActivity){
+                activity.ConfirmUpdate(menus)
             }
         }
     }
 
-    fun populateMenu(list: ArrayList<AllMenuModelItem>) {
+    fun populateSubMenu(list: ArrayList<Submenu>) {
         allmenu = list
         notifyDataSetChanged()
     }

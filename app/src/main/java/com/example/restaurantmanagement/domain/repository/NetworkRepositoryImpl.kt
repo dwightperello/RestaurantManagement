@@ -2,6 +2,7 @@ package com.example.restaurantmanagement.domain.repository
 
 import com.example.restaurantmanagement.Util.ResultState
 import com.example.restaurantmanagement.domain.model.request.NewMenu
+import com.example.restaurantmanagement.domain.model.request.UpdateMenuSubitem
 import com.example.restaurantmanagement.domain.model.request.request_login
 import com.example.restaurantmanagement.domain.model.response.*
 import com.example.restaurantmanagement.domain.network.NetworkService
@@ -41,6 +42,22 @@ class NetworkRepositoryImpl @Inject constructor (private val networkService: Net
 
     override suspend fun AddNewSubmenu(submenu: Submenu,token:String): ResponseBody {
         return  networkService.AddNewSubmenu(submenu,token)
+    }
+
+    override suspend fun getAllSubmenu(): ArrayList<Submenu> {
+       return  networkService.getAllSubMenu()
+    }
+
+    override suspend fun updateSubmenuitems(
+        id: Int,
+        updateMenuSubitem: UpdateMenuSubitem,
+        token: String
+    ) : ResponseBody {
+        return  networkService.UpdateSubMenu(id,updateMenuSubitem,token)
+    }
+
+    override suspend fun deleteSubitem(id: Int, token: String): ResponseBody {
+       return networkService.deletesubmenuitem(id,token)
     }
 
 

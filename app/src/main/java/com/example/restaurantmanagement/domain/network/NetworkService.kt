@@ -1,6 +1,7 @@
 package com.example.restaurantmanagement.domain.network
 
 import com.example.restaurantmanagement.domain.model.request.NewMenu
+import com.example.restaurantmanagement.domain.model.request.UpdateMenuSubitem
 import com.example.restaurantmanagement.domain.model.request.request_login
 import com.example.restaurantmanagement.domain.model.response.*
 import okhttp3.ResponseBody
@@ -31,6 +32,16 @@ interface NetworkService {
 
     @POST("SubMenus")
     suspend fun AddNewSubmenu(@Body submenu: Submenu,@Header("Authorization")token: String):ResponseBody
+
+    @GET("SubMenus")
+    suspend fun getAllSubMenu(): ArrayList<Submenu>
+
+    @PUT("SubMenus/{id}")
+    suspend fun UpdateSubMenu(@Path("id")id:Int,@Body updateMenuSubitem: UpdateMenuSubitem,@Header("Authorization")token: String): ResponseBody
+
+    @DELETE("SubMenus/{id}")
+    suspend fun deletesubmenuitem(@Path("id")id:Int,@Header("Authorization")token: String):ResponseBody
+
 
 
 
