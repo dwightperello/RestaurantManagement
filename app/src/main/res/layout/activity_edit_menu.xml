@@ -177,20 +177,7 @@
         </LinearLayout>
 
         <!--        VIEW three-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/noimage"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:id="@+id/iv_image"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 

@@ -27,6 +27,7 @@ import com.example.restaurantmanagement.domain.model.request.NewMenu
 import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
 import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.Home.HomeActivity
+import com.example.restaurantmanagement.presentation.activity.PreviewActivity
 import com.example.restaurantmanagement.presentation.adapter.AllMenuAdapter
 import com.thecode.aestheticdialogs.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,13 +55,9 @@ class EditMenuActivity : BaseActivity() {
         _binding.btnPreview.setOnClickListener {
             if (_binding.etUrl.text.isNotEmpty()) {
                 val url=_binding.etUrl.text.toString()
-                Glide.with(this)
-                    .load(url)
-                    .centerInside()
-                    .circleCrop()
-                    .apply(RequestOptions.centerCropTransform())
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(_binding.ivImage)
+                val intent = Intent(this, PreviewActivity::class.java)
+                intent.putExtra("key",url)
+                startActivity(intent)
             }
         }
 

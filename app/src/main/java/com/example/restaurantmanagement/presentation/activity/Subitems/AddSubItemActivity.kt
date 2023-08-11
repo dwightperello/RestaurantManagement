@@ -1,5 +1,6 @@
 package com.example.restaurantmanagement.presentation.activity.Subitems
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -21,6 +22,7 @@ import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
 import com.example.restaurantmanagement.domain.model.response.Submenu
 import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.Home.HomeActivity
+import com.example.restaurantmanagement.presentation.activity.PreviewActivity
 
 import com.example.restaurantmanagement.presentation.adapter.AllMenuAdapter
 import com.example.restaurantmanagement.presentation.adapter.showMenuForsubitemAdapter
@@ -61,6 +63,16 @@ class AddSubItemActivity : BaseActivity() {
             val validatefieldsresult= DataTempMngr.validAllFields(_binding.etUrl,_binding.etTagid,_binding.etMenuname,_binding.etPrice,_binding.etDescription)
             if(validatefieldsresult) viewModel.addnewsubmenu(converttosubitem(),"Bearer ${DataTempMngr.loginresponse!!.token}")
             else Toast(this).showCustomToast("Check entry",this)
+        }
+
+        _binding.btnPreview.setOnClickListener {
+           var url= _binding.etUrl.text.toString()
+            if(url.isNullOrEmpty()){
+                return@setOnClickListener
+            }
+            val intent = Intent(this, PreviewActivity::class.java)
+            intent.putExtra("key",url)
+            startActivity(intent)
         }
 
         InitSpinnerIsavailable()
