@@ -3,10 +3,7 @@ package com.example.restaurantmanagement.domain.repository
 import com.example.restaurantmanagement.Util.ResultState
 import com.example.restaurantmanagement.domain.model.request.NewMenu
 import com.example.restaurantmanagement.domain.model.request.request_login
-import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
-import com.example.restaurantmanagement.domain.model.response.SalesReportItem
-import com.example.restaurantmanagement.domain.model.response.TableOrdersItem
-import com.example.restaurantmanagement.domain.model.response.response_login
+import com.example.restaurantmanagement.domain.model.response.*
 import com.example.restaurantmanagement.domain.network.NetworkService
 import kotlinx.coroutines.flow.Flow
 import okhttp3.ResponseBody
@@ -40,6 +37,10 @@ class NetworkRepositoryImpl @Inject constructor (private val networkService: Net
 
     override suspend fun updateMenu(id: Int, newMenu: NewMenu): ResponseBody {
       return  networkService.updateMenu(id,newMenu)
+    }
+
+    override suspend fun AddNewSubmenu(submenu: Submenu,token:String): ResponseBody {
+        return  networkService.AddNewSubmenu(submenu,token)
     }
 
 

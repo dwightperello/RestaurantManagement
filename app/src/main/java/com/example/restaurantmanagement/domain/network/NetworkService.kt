@@ -2,17 +2,9 @@ package com.example.restaurantmanagement.domain.network
 
 import com.example.restaurantmanagement.domain.model.request.NewMenu
 import com.example.restaurantmanagement.domain.model.request.request_login
-import com.example.restaurantmanagement.domain.model.response.AllMenuModelItem
-import com.example.restaurantmanagement.domain.model.response.SalesReportItem
-import com.example.restaurantmanagement.domain.model.response.TableOrdersItem
-import com.example.restaurantmanagement.domain.model.response.response_login
+import com.example.restaurantmanagement.domain.model.response.*
 import okhttp3.ResponseBody
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface NetworkService {
 
@@ -36,6 +28,9 @@ interface NetworkService {
 
     @PUT("Menus/{id}")
     suspend fun updateMenu(@Path("id") id:Int,@Body newMenu: NewMenu): ResponseBody
+
+    @POST("SubMenus")
+    suspend fun AddNewSubmenu(@Body submenu: Submenu,@Header("Authorization")token: String):ResponseBody
 
 
 

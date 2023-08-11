@@ -20,6 +20,7 @@ import com.example.restaurantmanagement.presentation.activity.BaseActivity
 import com.example.restaurantmanagement.presentation.activity.MainActivity.MainViewModel
 import com.example.restaurantmanagement.presentation.activity.Menu.EditMenuActivity
 import com.example.restaurantmanagement.presentation.activity.Menu.MenuActivity
+import com.example.restaurantmanagement.presentation.activity.Subitems.AddSubItemActivity
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
@@ -79,6 +80,10 @@ class HomeActivity : BaseActivity() {
         }
         _binding.llEditmenu.setOnClickListener {
             startActivityWithAnimation<EditMenuActivity>(R.anim.screenslideright,R.anim.screen_slide_out_left)
+        }
+
+        _binding.llAddSubmenu.setOnClickListener {
+            startActivityWithAnimation<AddSubItemActivity>(R.anim.screenslideright,R.anim.screen_slide_out_left)
         }
     }
 

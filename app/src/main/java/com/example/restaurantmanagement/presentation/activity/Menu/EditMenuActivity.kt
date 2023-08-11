@@ -57,6 +57,7 @@ class EditMenuActivity : BaseActivity() {
                 Glide.with(this)
                     .load(url)
                     .centerInside()
+                    .circleCrop()
                     .apply(RequestOptions.centerCropTransform())
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(_binding.ivImage)
@@ -67,6 +68,8 @@ class EditMenuActivity : BaseActivity() {
             startActivityWithAnimation<HomeActivity>(R.anim.screenslideleft,R.anim.screen_slide_out_right)
             finish()
         }
+
+
 
         _binding.btnSave.setOnClickListener {
             val validatefieldsresult= DataTempMngr.validAllFields(_binding.etUrl,_binding.etTagid,_binding.etMenuname)
